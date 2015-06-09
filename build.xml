@@ -12,7 +12,7 @@ classpath="${thrid.dir}/checkstyle-5.6-all.jar" />
 <fileset dir="src" includes="**/*.java" />
 </checkstyle>
 <taskdef resource="checkstyletask.properties"
-           classpath="${thrid.dir}/checkstyle-6.7-all.jar"/>
+           classpath="${thrid.dir}/checkstyle-5.6-all.jar"/>
 <!-- 通过指定的xsl模版文件生成一份html的报告-->
 <xslt in="checkstyle/checkstyle_report.xml" out="checkstyle/checkstyle_report.html"
 style="${thrid.dir}/checkstyle-author.xsl" />   
