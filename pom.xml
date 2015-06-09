@@ -1,0 +1,16 @@
+<?xml version="1.0"?> <project name="IWUSE" basedir="." default="checkstyle">     
+<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask" 
+ classpath="./tools/checkstyle-6.7-all.jar" />   
+<target name="checkstyle"  description="Generates a report of code convention violations.">         
+<mkdir dir="checkstyle" />  
+//调用指定的xml解析规则文件     
+ <checkstyle config="sun_checks.xml" failureProperty="checkstyle.failure"  failOnViolation="false">    
+//生成检查结果xml文件到指定目录，Jenkins中插件也可以使用这个xml结果文件解析为可视化图表    
+<formatter type="xml"   tofile="checkstyle/checkstyle_report.xml" />      
+<fileset dir="src" includes="**/*.java" /> 
+</checkstyle> 
+//通过指定的xsl模版文件生成一份html的报告，这里生成的文件用于邮件发送时附加上，另外Jenkins插件也会生成可视化的结果
+<xslt in="checkstyle/checkstyle_report.xml" out="checkstyle/checkstyle_report.html" 
+ style="checkstyle-author.xsl" />    
+</target> 
+</project>
