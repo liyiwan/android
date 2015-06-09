@@ -2,7 +2,7 @@
 <project name="IWUSE" basedir="." default="checkstyle">
      <property name="thrid.dir" value="${basedir}/thridpart"/>   
 <taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask"
-classpath="${thrid.dir}/checkstyle-6.7-all.jar" />  
+classpath="${thrid.dir}/checkstyle-5.6-all.jar" />  
 <target name="checkstyle"  description="Generates a report of code convention violations.">        
 <mkdir dir="checkstyle" /> 
 <!-- 调用指定的xml解析规则文件-->
